@@ -1,0 +1,392 @@
+:root {
+    --color-dark: #1f2630;
+    --color-dark-thing: #252e3f;
+    --color-green: #2cfec1;
+    --color-blue: #7fafdf;
+}
+
+body {
+    background-color: var(--color-dark);
+    color: white;
+    /*font-family: "Open Sans", sans-serif;*/
+    font-family: "Tahoma", sans-serif;
+    margin: 0;
+}
+
+.home-body {
+    width: calc(100%);
+    height: calc(100vh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-book {
+    font-size: 4em;
+}
+
+/* ###### NAV TAB ###### */
+/* This creates a skinny side bar fixed to the left of the page */
+.sidebar {
+  position: fixed;
+  top: 0vh;
+  left: 0;
+  bottom: 0;
+  width: 5rem;
+  padding: 2rem 1rem;
+  background-color: var(--color-dark-thing);
+  z-index: 2;
+  transition: width 0.1s ease-in-out;
+  color: white;
+  border-right: none;
+
+}
+
+/* when the user hovers on the sidebar, expand it */
+.sidebar:hover {
+  width: 16rem;
+}
+
+/* make sure the contents of the navlink don't wrap when navbar collapses */
+.sidebar .nav-link {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  color: white;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--color-green);
+    color: var(--color-dark-thing);
+}
+
+/* fix the width of the icons */
+.sidebar .nav-link i {
+  width: 1rem;
+  color: white;
+}
+
+.sidebar .nav-link.active i {
+  color: var(--color-dark-thing);
+}
+
+/* hide the navlink labels by default */
+.sidebar .nav-link span {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+/* when the sidebar is hovered, reveal the labels */
+.sidebar:hover .nav-link span {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* container for the sidebar header. make sure the contents don't wrap when
+ * the sidebar is collapsed.
+ */
+.sidebar-header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* position the header relative to the logo and hide by default */
+.sidebar-header h2 {
+  opacity: 0;
+  margin-left: 1rem;
+  margin-bottom: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+/* reveal the header when the sidebar is toggled */
+.sidebar:hover .sidebar-header h2 {
+  opacity: 1;
+}
+
+/* position the content relative to the collapsed sidebar */
+.content {
+  margin-left: 7rem;
+  margin-right: 2rem;
+  padding: 2rem 1rem;
+}
+
+.sidebar_title{
+    margin-left: 0.5rem;
+}
+
+.text_sidebar_footer1 {
+    color: white;
+    text-align: center;
+    margin-top: calc(-50px + (650 - 50) * ((100vw - 480px) / 1200)) !important;
+    font-family: Arial;
+    font-size: calc(9px + (8 - 5) * ((100vw - 480px) / 1200)) !important;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+
+
+}
+.sidebar:hover .text_sidebar_footer1 {
+  opacity: 1;
+}
+
+/* #### DATE PICKER #### */
+#table-date-picker{
+  width: 100%;
+}*/
+/* ## week days ##*/
+.DayPicker_weekHeader_ul {
+    color: white
+}
+.CalendarMonth_caption {
+    color: white;
+}
+.CalendarMonth {
+    background-color: var(--color-dark-thing);
+    color: white;
+}
+.CalendarMonthGrid {
+    background: var(--color-dark-thing)!important
+}
+/* Days style */
+.CalendarDay__default{
+        background: var(--color-dark-thing);
+        color: white;
+        border: 1px solid white;
+}
+
+.CalendarDay__outside{
+       background: var(--color-dark-thing);
+       color: var(--color-dark-thing);
+       border: 0px;
+}
+.CalendarDay__selected_span{
+    background: var(--color-green)!important;
+    opacity: 0.5 !important;
+    border: var(--color-dark-thing) !important;
+    color: white !important;
+}
+.CalendarDay__selected{
+    background: var(--color-green)!important;
+    border: var(--color-dark-thing);
+    color: white !important;
+}
+.DayPicker{
+    background: var(--color-dark-thing);
+}
+
+.DayPickerKeyboardShortcuts_show__bottomRight::before {
+    border-right: 33px solid var(--color-green);
+    color: var(--color-dark-thing)
+}
+.DayPicker_TransitionContainer {
+    background-color: var(--color-dark-thing);
+}
+
+/* ###################################
+GRAPH TITLE
+######################################*/
+.graph-title {
+    color: white
+}
+
+
+
+/* ###################################
+MODALS
+######################################*/
+.modal-content{
+    background-color: var(--color-dark-thing);
+}
+
+/* ###################################
+BUTTONS
+######################################*/
+.button-modal{
+    border-radius: 4px;
+    font-size: 16px;
+}
+.button-green {
+    background-color: var(--color-green);
+    border-color: var(--color-dark);
+    color: var(--color-dark);
+}
+.button-green:disabled {
+    opacity: 0.1;
+    border-color: var(--color-dark);
+    color: var(--color-dark);
+}
+
+.button-dark {
+    background-color: var(--color-dark);
+    border-color: white;
+    color: white;
+}
+button-table{
+}
+
+/*#######################
+PIE CHART
+########################*/
+/* To remove plotly bar*/
+.modebar {
+      display: none !important;
+}
+
+/*#############################
+RESERVATIONS ELEMENTS
+#############################*/
+#reservations-day-h5{
+    margin-top: calc(4%) !important;
+}
+
+.div-for-buttons {
+    margin-top: calc(5%) !important;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+}
+#reservation-table {
+    margin-top: calc(1%) !important;
+    /*height: calc(25%) !important;*/
+}
+
+/* Table sorting arrows hover format -> pink by default */
+.dash-table-container .dash-spreadsheet-container
+.dash-spreadsheet-inner th:hover [class^='column-header--']:not(.disabled),
+.dash-table-container .dash-spreadsheet-container
+.dash-spreadsheet-inner th:hover [class^='dash-filter--']:not(.disabled) {
+    color: var(--color-dark) !important;
+    opacity: 0.2;
+ }
+
+.reservation-button {
+    margin-left: 5px;
+    border-radius: 5px;
+
+}
+
+/*##############################
+STATISTICS ELEMENTS
+################################*/
+/* TABS */
+.nav-tabs .nav-link.active {
+    background-color: var(--color-green);
+    color: var(--color-dark-thing);
+    border: 1px solid var(--color-dark-thing)
+}
+.nav-tabs .nav-link {
+    color: white;
+    margin-top: calc(10%) !important;
+}
+
+.statistics-tab {
+    margin-top: calc(4%);
+    margin-bottom: calc(3%);
+}
+
+/* #################################
+MODAL
+###################################*/
+.time-dropdown {
+    color: var(--color-dark-thing);
+    width: calc(50px + (80 - 30) * ((100vw - 480px) / 1200)) !important;
+}
+*/
+.btn-close {
+    color: white
+}
+
+.Select-clear:hover {
+    color: var(--color-dark-thing);
+}
+.Select-clear-zone:hover {
+    color: var(--color-dark-thing) !important;
+}
+
+.modal-input {
+    border-radius: 5px;
+    border: 1px solid var(--color-dark);
+}
+
+.button-dark:disabled {
+   opacity: 0.1;
+}
+
+.div-for-time {
+    display: flex;
+    flex-direction: row;
+}
+
+/* #############################
+ DIV TABLES
+ ################################*/
+
+.table-reserved {
+    background-color: var(--color-green);
+    color: var(--color-dark-thing);
+    border: 1px solid white;
+    width: 160px;
+    height: 100px;
+    margin-right: ($spacer * .5) !important;
+    margin-legt: ($spacer * .5) !important;
+}
+
+.table-free {
+    background-color: var(--color-dark-thing);
+    border: 1px solid white;
+    width: 160px;
+    height: 100px;
+    margin-right: ($spacer * .5) !important;
+    margin-legt: ($spacer * .5) !important;
+}
+
+.table-row-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.reservation-table-text {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+.table-text-div {
+    width: 160px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*################################
+ POPOVERS
+##################################*/
+
+.table-info-pop {
+    width: 200px;
+    height: 160px;
+    background-color: var(--color-dark-thing);
+    color: white;
+    border: 1px solid white;
+}
+
+.popover-body {
+    color: white;
+}
+
+.popover-header {
+    color: var(--color-dark-thing);
+}
+
+
+
+
+
