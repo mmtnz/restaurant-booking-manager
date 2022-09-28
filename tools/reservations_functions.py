@@ -39,6 +39,7 @@ def add_new_reservation(reservation_id, reservation_datetime, reservation_number
     :return: is_error, bool that indicates if there has been any error
     """
     is_error = False
+    reservation_obs = '' if reservation_obs is None else reservation_obs
     try:
         database.insert_query(
             table_name=conf_vars.DB_TABLE_NAME,
@@ -121,7 +122,7 @@ def check_availability(reservation_datetime, num_people):
     try:
         reservations = database.select_query(
             table_name=conf_vars.DB_TABLE_NAME,
-            where_condition=f"ReservationDay BETWEEN '{reservation_day}' and {reservation_day_next}"
+            where_condition=f"ReservationDay BETWEEN '{reservation_day}' and '{reservation_day_next}'"
         )
     except Exception as e:
         logger.error(f"[!] Error reading database -> {type(e)}: {e}")
@@ -237,8 +238,8 @@ def get_tables_class_name_list(df_reservations, num_tables):
     """
     tables_class_name_list = ['table-free'] * num_tables
 
-    # Boolean list indicating if table is reserved
-    is_table_reserved_list = get_booked_tables(
+    # Boolean list indicating if table is reserved  #TODO revisar _
+    is_table_reserved_list, _ = get_booked_tables(
         tables_list=df_reservations['Table(s)'].tolist(),
         num_total_tables=num_tables
     )
