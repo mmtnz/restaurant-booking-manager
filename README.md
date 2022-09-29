@@ -25,7 +25,7 @@ This demo/app represents a booking system that could be used in companies such a
 
 The motivation of this project is to learn new software tools and offer an easy managment solution for companies such as the mentioned above. 
 
-The user is able to visualize reservations of the selected date, as well as **add, edit or remove any reservation** filtering by date. Furthemore, not only can occupation be controlled but also the number of employees needed. This is because the statistics page which can be used to discover the more occupated seasons in past years. Thus extra people could be added to staff only as required.
+The user can visualize reservations of the selected date, as well as **add, edit or remove any reservation** filtering by date. Furthemore, not only can occupation be controlled but also the number of employees needed. This isthanks to the statistics page which can be used to discover the more occupated seasons in past years. Thus extra people could be added to staff only as required.
 
 
 ### Built With
@@ -67,7 +67,7 @@ CREATE TABLE movies(
 );
 ```
 
-Make sure that the user used has the privilegs needed.
+Make sure that the user to use has the privilegs needed.
 
 - #### Requirements:
 Create and activate a new virtual enviroment.
