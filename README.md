@@ -6,7 +6,7 @@
 
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 [![Dash 4.0](https://img.shields.io/badge/dash-4.0-yellow.svg)](https://dash.plotly.com/)
-[![mysql](https://img.shields.io/badge/MySQL-orange?style=flate&logo=mysql&logoColor=white.svg)](https://mysql.com/)
+[![mysql](https://img.shields.io/badge/-MySQL-orange?style=flate&logo=mysql&logoColor=white.svg)](https://mysql.com/)
 
 ## Table of Contents
 <details>
