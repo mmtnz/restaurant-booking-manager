@@ -330,6 +330,7 @@ MODAL
     background-color: var(--color-green);
     color: var(--color-dark-thing);
     border: 1px solid white;
+    border-radius: 4px;
     width: 160px;
     height: 100px;
     margin-right: ($spacer * .5) !important;
@@ -339,6 +340,7 @@ MODAL
 .table-free {
     background-color: var(--color-dark-thing);
     border: 1px solid white;
+    border-radius: 4px;
     width: 160px;
     height: 100px;
     margin-right: ($spacer * .5) !important;

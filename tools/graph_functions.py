@@ -96,9 +96,13 @@ def get_statistics_percentage_pie(values, labels):
               conf_vars.COLOR_SEMI_DARK_GREEN_4, conf_vars.COLOR_SEMI_DARK_GREEN_5, conf_vars.COLOR_SEMI_DARK_GREEN_6]
 
     # Mode: Item that repeats the most
-    mode_font_size = 60
-    mode_index = [index for index, item in enumerate(values) if item == max(values)]
-    mode_annotation = labels[mode_index[0]]
+    try:
+        mode_font_size = 60
+        mode_index = [index for index, item in enumerate(values) if item == max(values)]
+        mode_annotation = labels[mode_index[0]]
+    except Exception as e:
+        print(e)
+        a = 1
 
     # If there are months with same number of visits
     if len(mode_index) > 1:
@@ -220,14 +224,12 @@ def get_number_per_day_of_week_histogram(df, start_date, end_date):
         number_per_day_of_week_dict[year] = {month: [0] * 7 for month in range(start_month_index, end_month_index + 1)}
 
     # Fill dictionary with df number of people values
-    try:
-        for item in list_items:
-            month = item['Day'].month - 1  # Index start at 0
-            year = item['Day'].year
-            day = item['Day'].day_of_week
-            number_per_day_of_week_dict[year][month][day] += item['Number of people']
-    except:
-        e = 1
+
+    for item in list_items:
+        month = item['Day'].month  # Index start at 0
+        year = item['Day'].year
+        day = item['Day'].day_of_week
+        number_per_day_of_week_dict[year][month][day] += item['Number of people']
 
     for month_dict in number_per_day_of_week_dict.values():
         for week_results in month_dict.values():
@@ -340,7 +342,7 @@ def get_number_per_day_of_week_pie(df):
     number_per_day_of_week = [0] * 7  # List initialized
 
     for item in list_items:
-        day = item['Day'].day_of_week - 1  # Index start at 0
+        day = item['Day'].day_of_week
         number_per_day_of_week[day] += item['Number of people']
 
     return number_per_day_of_week
@@ -379,12 +381,12 @@ def get_week_labels_pie(start_date, end_date):
     """
     week_name_dict = {0: "Mon", 1: "Tue", 2: "Wed", 3: "Thu", 4: "Fri ", 5: "Sat",  6: "Sun"}
 
-    if (end_date - start_date).days >= 7:
+    if (end_date - start_date).days >= 6:
         return [day for day in week_name_dict.values()]
 
     # If it is the same week, it is possible that not all days are selected
-    first_day_index = start_date.day_of_week
-    last_day_index = end_date.day_of_week
+    first_day_index = pd.to_datetime(start_date).day_of_week
+    last_day_index = pd.to_datetime(end_date).day_of_week
 
     return [day_name for day_index, day_name in week_name_dict.items() if
             first_day_index <= day_index <= last_day_index]

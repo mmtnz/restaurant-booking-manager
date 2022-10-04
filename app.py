@@ -89,7 +89,7 @@ outputs_call += [Output("day-edit-reservation-modal", "children"),
     outputs_call,
     [Input("edit-reservation-button", "n_clicks"),
      Input("edit-modal-cancel-button", "n_clicks")],
-    [State("reservation-table", prop) for prop in ["active_cell, data"]],
+    [State("reservation-table", prop) for prop in ["active_cell", "data"]],
     prevent_initial_call=True
 )
 def open_edit_modal(n_clicks_open, n_clicks_close, active_cell, table_data):
@@ -158,12 +158,15 @@ def highlight_row_and_active_button(active_cell_dict):
 @app.callback(
     [Output("reservation-table", "data"), Output("percentage-graph-div", "children"),
      Output("add-reservation-button", "disabled")],
-    Input("reservation-date-picker", "date"),
+    [Input("reservation-date-picker", "date"), Input("successful-add-alert", "is_open"),
+     Input("successful-edit-alert", "is_open")]
 )
-def update_reservations_table(date):
+def update_reservations_table(date, is_added, is_edited):
     """
     To update reservations table and pie chart indicating occupation
     :param date: selected date
+    :param is_added: if reservation is added successfully table is updated with new reservation
+    :param is_edited: if reservation is edited successfully table is updated
     :return: updated reservations table and percentage pie-chart
     """
     if date is None:  # Default chart
@@ -258,14 +261,16 @@ def add_reservation_callback(nc, reservation_name, reservation_number_people,
 
 
 # State items updated
-state_items += [State("reservation-table", prop) for prop in ["active_cell, data"]]
+state_items_2 = [State(f"{item}-edit-reservation-modal", "value") for item in MODAL_ITEMS]
+state_items_2 += [State("reservation-date-picker", "date")]
+state_items_2 += [State("reservation-table", prop) for prop in ["active_cell", "data"]]
 
 
 @app.callback(
     [Output("successful-edit-alert", f"{prop}")
      for prop in ["children", "is_open", "color"]],
     Input("edit-modal-add-button", "n_clicks"),
-    state_items,
+    state_items_2,
     prevent_initial_call=True
 )
 def edit_reservation_callback(nc, reservation_name, reservation_number_people,
@@ -395,16 +400,17 @@ def update_statistics_graphs(start_date, end_date):
     if start_date is None or end_date is None:
         histogram_month, pie_chart_month = get_empty_graphs(histogram_title_month)
         histogram_week, pie_chart_week = get_empty_graphs(histogram_title_week)
-        return histogram_month, pie_chart_month, histogram_week, pie_chart_week
+        return histogram_week, pie_chart_week, histogram_month, pie_chart_month
 
-    df_query = get_db_reservations_date(start_date, end_date)
+    query = get_db_reservations_date(start_date, end_date)
+    df_query = pd.DataFrame(query, columns=COLUMNS)
     histogram_month = update_histogram_month(start_date, end_date, df_query,
                                              histogram_title_month)
     pie_chart_month = update_pie_month(start_date, end_date, df_query)
     histogram_week = update_histogram_week(start_date, end_date, df_query,
                                            histogram_title_week)
     pie_chart_week = update_pie_week(start_date, end_date, df_query)
-    return histogram_month, pie_chart_month, histogram_week, pie_chart_week
+    return histogram_week, pie_chart_week, histogram_month, pie_chart_month
 
 
 # @@@@@ statistics @@@@@

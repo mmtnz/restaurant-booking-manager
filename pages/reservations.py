@@ -145,14 +145,15 @@ layout = html.Div(
                     [
                         dbc.Row(
                             [
-                                html.H5("Day:"),
+                                html.H5("Date:"),
                                 dcc.DatePickerSingle(
                                     id='reservation-date-picker',
                                     placeholder='Select a day',
                                     className="custom-day-picker",
                                     date=dt.date.today(),
+                                    first_day_of_week=1
                                 )
-                            ]
+                            ], className='my-4'
                         ),
                         dbc.Row(
                             [

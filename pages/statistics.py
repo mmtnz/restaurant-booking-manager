@@ -1,11 +1,8 @@
 import dash
-import pandas as pd
-from dash import html, dcc, Output, Input
+from dash import html, dcc
 import dash_bootstrap_components as dbc
-import plotly.graph_objects as go
-import plotly.express as px
 import os
-import datetime as dt
+
 
 tab_month = dbc.Row(
     [
@@ -23,23 +20,27 @@ tab_week = dbc.Row(
 layout = html.Div(children=[
     dbc.Row(
         dbc.Col(
-            dcc.DatePickerRange(
-                id='statistics-date-picker',
-                className="custom-day-picker",
-                start_date_placeholder_text='First day',
-                end_date_placeholder_text='Last day',
-                clearable=True
-            ),
+            [
+                html.H5("Date:"),
+                dcc.DatePickerRange(
+                    id='statistics-date-picker',
+                    className="custom-day-picker",
+                    start_date_placeholder_text='First day',
+                    end_date_placeholder_text='Last day',
+                    clearable=True,
+                    first_day_of_week=1
+                )
+            ],
             width=dict(offset=2),
-            lg=6, md=6
+            lg=6, md=6, className='my-4'
         )
     ),
     dbc.Row(
         dbc.Col(
             dbc.Tabs(
                 [
-                    dbc.Tab(tab_month, label="Month statistics"),
                     dbc.Tab(tab_week, label="Week statistics"),
+                    dbc.Tab(tab_month, label="Month statistics"),
                 ],
                 className="statistics-tab"
             ),

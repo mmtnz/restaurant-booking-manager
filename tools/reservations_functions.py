@@ -18,7 +18,7 @@ def get_db_reservations_date(date_1, date_2):
     try:
         select_query = database.select_query(
             table_name=conf_vars.DB_TABLE_NAME,
-            where_condition=f"ReservationDay BETWEEN '{date_1}' AND '{date_2}'")
+            where_condition=f"ReservationDate BETWEEN '{date_1}' AND '{date_2}' ORDER BY ReservationDate ASC")
     except Exception as e:
         select_query = []
         logger.error(f"[!] Error executing SELECT query -> {type(e)}: {e}")
@@ -66,15 +66,15 @@ def edit_reservation(reservation_id, reservation_datetime, reservation_number_pe
     :return: is_error, bool that indicates if there has been any error
     """
     is_error = False
-    columns = ['ReservationName', 'ReservationDate', 'ReservationNumber',
+    columns = ['ReservationName', 'ReservationDate', 'ReservationNumberPeople',
                'ReservationTables', 'ReservationObservations']
     values = [reservation_name, reservation_datetime, reservation_number_people,
               reservation_tables, reservation_obs]
 
     values_str = [f"{columns[i]}='{values[i]}'" for i in range(len(columns))]
-
+    values_str = ','.join(values_str)
     try:
-        database.update(
+        database.update_query(
             table_name=conf_vars.DB_TABLE_NAME,
             values_str=values_str,
             condition=f"ReservationId = '{reservation_id}'"
@@ -122,7 +122,8 @@ def check_availability(reservation_datetime, num_people):
     try:
         reservations = database.select_query(
             table_name=conf_vars.DB_TABLE_NAME,
-            where_condition=f"ReservationDay BETWEEN '{reservation_day}' and '{reservation_day_next}'"
+            where_condition=f"ReservationDate BETWEEN '{reservation_day}' and '{reservation_day_next}'"
+
         )
     except Exception as e:
         logger.error(f"[!] Error reading database -> {type(e)}: {e}")
@@ -275,7 +276,7 @@ def get_popover(name, time, observations, index):
             ),
 
         ],
-        target=f"table-{index}", trigger='click hover', placement='right',
+        target=f"table-{index}", trigger='hover', placement='right',
         className="table-info-pop", id=f"table-{index}-popover"
     )
     return popover
@@ -337,7 +338,7 @@ def get_tables_screen_callback_outputs(df_reservations, num_tables: int):
         num_tables=num_tables
     )
 
-    # Group all callbacks in an unique list
+    # Group all callbacks in a unique list
     callback_list = tables_class_name_list + table_name_list
     callback_list.append(popovers_list)
     return callback_list

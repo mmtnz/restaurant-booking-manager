@@ -11,11 +11,15 @@ layout = html.Div(children=[
     dbc.Row(
         dbc.Col(
             html.Div(
-                dcc.DatePickerSingle(
-                    id='tables-screen-date-picker',
-                    placeholder='Select a day',
-                    date=dt.date.today()
-                ),
+                [
+                    html.H5("Date:"),
+                    dcc.DatePickerSingle(
+                        id='tables-screen-date-picker',
+                        placeholder='Select a day',
+                        date=dt.date.today(),
+                        first_day_of_week=1
+                    )
+                ],
                 className='my-4'
             ),
             width={"offset": 2}
