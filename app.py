@@ -159,14 +159,15 @@ def highlight_row_and_active_button(active_cell_dict):
     [Output("reservation-table", "data"), Output("percentage-graph-div", "children"),
      Output("add-reservation-button", "disabled")],
     [Input("reservation-date-picker", "date"), Input("successful-add-alert", "is_open"),
-     Input("successful-edit-alert", "is_open")]
+     Input("successful-edit-alert", "is_open"), Input("successful-remove-alert", "is_open")]
 )
-def update_reservations_table(date, is_added, is_edited):
+def update_reservations_table(date, is_added, is_edited, is_removed):
     """
     To update reservations table and pie chart indicating occupation
     :param date: selected date
     :param is_added: if reservation is added successfully table is updated with new reservation
     :param is_edited: if reservation is edited successfully table is updated
+    :param is_removed: if reservation is removed table is updated
     :return: updated reservations table and percentage pie-chart
     """
     if date is None:  # Default chart
@@ -310,6 +311,29 @@ def edit_reservation_callback(nc, reservation_name, reservation_number_people,
         banner_msg = f"Error adding reservation"
         banner_color = "danger"
 
+    return banner_msg, True, banner_color
+
+
+@app.callback(
+    [Output("successful-remove-alert", f"{prop}")
+     for prop in ["children", "is_open", "color"]],
+    Input("remove-reservation-button", "n_clicks"),
+    [State("reservation-table", prop) for prop in ["active_cell", "data"]],
+    prevent_initial_call=True
+)
+def remove_reservation_callback(nc, active_cell, table_data):
+
+    reservation_data = table_data[active_cell['row']]
+    reservation_id = reservation_data['Id']
+    is_error = delete_reservation(
+        reservation_id=reservation_id,
+    )
+    if not is_error:
+        banner_msg = f"Reservation {reservation_id} successfully edited"
+        banner_color = "success"
+    else:
+        banner_msg = f"Error adding reservation"
+        banner_color = "danger"
     return banner_msg, True, banner_color
 
 
@@ -459,4 +483,4 @@ select_query_dict = {
 }
 
 if __name__ == '__main__':
-    app.run_server(port=8051, debug=True)
+    app.run_server(port=8050, debug=False)

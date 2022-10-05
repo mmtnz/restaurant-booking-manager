@@ -276,7 +276,7 @@ def get_popover(name, time, observations, index):
             ),
 
         ],
-        target=f"table-{index}", trigger='hover', placement='right',
+        target=f"table-{index}", trigger='hover click', placement='right',
         className="table-info-pop", id=f"table-{index}-popover"
     )
     return popover

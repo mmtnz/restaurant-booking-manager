@@ -14,7 +14,7 @@ add_reservation_modal = dbc.Modal(
         dbc.ModalHeader(html.H4("Add new reservation")),
         dbc.ModalBody(
             [
-                dbc.Alert("mensaje", id="successful-add-alert", is_open=False,
+                dbc.Alert("", id="successful-add-alert", is_open=False,
                           duration=10000, dismissable=True, className='mx-3'),
                 dbc.Row(
                     [
@@ -74,7 +74,7 @@ edit_reservation_modal = dbc.Modal(
         dbc.ModalHeader(html.H4("Edit reservation")),
         dbc.ModalBody(
             [
-                dbc.Alert("mensaje", id="successful-edit-alert", is_open=False,
+                dbc.Alert("", id="successful-edit-alert", is_open=False,
                           duration=10000, dismissable=True, className='mx-3'),
                 dbc.Row(
                     [
@@ -152,7 +152,7 @@ layout = html.Div(
                                     className="custom-day-picker",
                                     date=dt.date.today(),
                                     first_day_of_week=1
-                                )
+                                ),
                             ], className='my-4'
                         ),
                         dbc.Row(
@@ -165,6 +165,10 @@ layout = html.Div(
 
                             ],
                             className="div-for-buttons"
+                        ),
+                        dbc.Row(
+                            dbc.Alert("", id="successful-remove-alert", is_open=False,
+                                      duration=10000, dismissable=True, className='mx-3 my-3')
                         ),
                         dbc.Row(
                             dash_table.DataTable(
