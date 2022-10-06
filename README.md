@@ -1,11 +1,12 @@
 # restaurant-booking-manager 
 [![Issues][issues-shield]][issues-url]
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://www.python.org/downloads/release/python-390/)
 
 [issues-shield]: https://img.shields.io/github/issues/mmtnz/restaurant-booking-manager.svg?style=flat
 [issues-url]: https://github.com/mmtnz/restaurant-booking-manager/issues
 
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
-[![Dash 4.0](https://img.shields.io/badge/dash-4.0-yellow.svg)](https://dash.plotly.com/)
+[![Dash 2.6](https://img.shields.io/badge/dash-2.6-yellow.svg)](https://dash.plotly.com/)
 [![mysql](https://img.shields.io/badge/MySQL-database-orange?style=flate&logo=mysql&logoColor=white.svg)](https://mysql.com/)
 
 
@@ -25,6 +26,9 @@
 
 This demo/app represents a booking system that could be used in companies such as restaurants (current case), hotels, etc.
 
+
+![example](https://user-images.githubusercontent.com/100723086/194145144-741c19ff-0e05-455b-b3ef-d371d435970f.gif)
+
 The motivation of this project is to learn new software tools and offer an easy managment solution for companies such as the mentioned above. 
 
 The user can visualize reservations of the selected date, as well as **add, edit or remove any reservation** filtering by date. Furthemore, not only can occupation be controlled but also the number of employees needed. This isthanks to the statistics page which can be used to discover the more occupated seasons in past years. Thus extra people could be added to staff only as required.
@@ -33,7 +37,7 @@ The user can visualize reservations of the selected date, as well as **add, edit
 ### Built With
 
 - [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
-- [![Dash 4.0](https://img.shields.io/badge/dash-4.0-yellow.svg)](https://dash.plotly.com/) : Dash library is an easy way to create a web app.
+- [![Dash 2.6](https://img.shields.io/badge/dash-2.6-yellow.svg)](https://dash.plotly.com/) : Dash library is an easy way to create a web app.
 - [![mysql](https://img.shields.io/badge/MySQL-database-orange?style=flate&logo=mysql&logoColor=white.svg)](https://mysql.com/) : MySql database is used to gather all reservations. This allows the app add, edit or remove reservations easyly.
 
 ### Challenges
@@ -45,11 +49,37 @@ This first release is designed to be used locally (database is locally located).
 
 <p align="right">(<a href="#restaurant-booking-manager">back to top</a>)</p>
 
+## Funtionalities
+
+- ### Show reservations
+
+In this page reservations are visually shown, indicating name, time and observations.
+
+![show_small](https://user-images.githubusercontent.com/100723086/194363209-ac9321ba-eff6-4202-9428-12e02d60784c.png)
+
+
+- ### Edit reservations
+
+In this page reservation could be added, edited or removed. 
+
+There also is a graphic indicating occupation percentage.
+
+![show_small](https://user-images.githubusercontent.com/100723086/194364047-b7974a76-590d-4bfa-bfb4-67f7c5672149.png)
+
+- ### Statistics
+
+In this page it is possible to analyze week and month satatistics.
+
+![statistics](https://user-images.githubusercontent.com/100723086/194364280-53e1d36d-1170-473e-bd05-80cc02860c20.png)
+
+<p align="right">(<a href="#restaurant-booking-manager">back to top</a>)</p>
+
 ## Getting Started
 
 In this section it will be shown how to run the app locally.
 
 The first step is to clone this repository in a local folder.
+
 
 ### Prerequisites
 
