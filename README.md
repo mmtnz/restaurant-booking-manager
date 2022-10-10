@@ -18,6 +18,10 @@
 - 1. [Description](#description)
   - 1. [Built With](#built-with)
   - 2. [Challenges](#challenges)
+- 2. [Funtionalities](#funtionalities)
+  - 1. [Show reservations](#show-reservations)
+  - 2. [Edit reservations](#edit-reservations)
+  - 3. [Statistics](#statistics)
 - 2. [Getting Started](#getting-started)
 - 3. [Contact](#contact)
 </details>
