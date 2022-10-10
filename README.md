@@ -68,7 +68,8 @@ In this page reservation could be added, edited or removed.
 
 There also is a graphic indicating occupation percentage.
 
-![show_small](https://user-images.githubusercontent.com/100723086/194364047-b7974a76-590d-4bfa-bfb4-67f7c5672149.png)
+![reservations](https://user-images.githubusercontent.com/100723086/194899543-74f7235a-0cd4-4627-9919-510e4bd9bdc8.png)
+
 
 - ### Statistics
 
