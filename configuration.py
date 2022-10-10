@@ -13,7 +13,7 @@ except Exception as e:
 
 """ Map config file vars with global vars """
 try:
-    SW_VERSION = configuration_reader['system']['sw_version']
+    SW_VERSION = 1.0
 
     DB_HOST = configuration_reader['database']['db_host']
     DB_PASSWORD = configuration_reader['database']['db_password']
