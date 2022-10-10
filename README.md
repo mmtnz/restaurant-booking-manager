@@ -129,7 +129,7 @@ python app.py
 
 Open browser at [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
-If something is not working as spected, check for errors in the `log file` located in the folder path.
+If something is not working as spected, check for errors the `log file` located in folder path.
 
 <p align="right">(<a href="#restaurant-booking-manager">back to top</a>)</p>
 
