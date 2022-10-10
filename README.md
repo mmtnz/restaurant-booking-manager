@@ -1,6 +1,5 @@
 # restaurant-booking-manager 
 [![Issues][issues-shield]][issues-url]
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://www.python.org/downloads/release/python-390/)
 
 [issues-shield]: https://img.shields.io/github/issues/mmtnz/restaurant-booking-manager.svg?style=flat
 [issues-url]: https://github.com/mmtnz/restaurant-booking-manager/issues
