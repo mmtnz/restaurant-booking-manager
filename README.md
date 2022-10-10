@@ -15,11 +15,12 @@
 <details>
   <summary>Click me</summary>
   
-  ### Contents
-  1. [Description](#description)
-  2. [Built With](#built-with)
-  3. [Challenges](#challenges)
-  4. [Getting Started](#getting-started)
+### Contents
+- 1. [Description](#description)
+  - 1. [Built With](#built-with)
+  - 2. [Challenges](#challenges)
+- 2. [Getting Started](#getting-started)
+- 3. [Contact](#contact)
 </details>
 
 ## Description
@@ -129,4 +130,8 @@ If something is not working as spected, check for errors in the `log file` locat
 
 <p align="right">(<a href="#restaurant-booking-manager">back to top</a>)</p>
 
+## Contact
 
+- e-mail: [mariomlafuente@gmail.com](mailto:mariomlafuente@gmail.com) 
+
+<p align="right">(<a href="#restaurant-booking-manager">back to top</a>)</p>
